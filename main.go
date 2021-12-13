@@ -18,8 +18,17 @@ type OhMySMTPClient struct {
 type Payload struct {
 	From     string `json:"from"`
 	To       string `json:"to"`
-	Subject  string `json:"subject"`
 	TextBody string `json:"textbody"`
+
+	CC  string `json:"cc,omitempty"`
+	BCC string `json:"bcc,omitempty"`
+
+	Subject string `json:"subject,omitempty"`
+
+	ReplyTo         string `json:"replyto,omitempty"`
+	ListUnsubscribe string `json:"list_unsubscribe,omitempty"`
+	Attachments     string `json:"attachments,omitempty"`
+	Tags            string `json:"tags,omitempty"`
 }
 
 // Return new OhMySMTP client
@@ -30,7 +39,7 @@ func NewClient(apiKey string) *OhMySMTPClient {
 }
 
 // Send an email through the API
-func (c *OhMySMTPClient) Send(payload *Payload) error {
+func (c *OhMySMTPClient) Send(payload Payload) error {
 	url := fmt.Sprintf("%s/%s", API_URL, "send")
 
 	// Marshal the payload into JSON format
