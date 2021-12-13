@@ -10,8 +10,9 @@ import (
 // Production endpoint for OhMySMTP
 const API_URL = "https://app.ohmysmtp.com/api/v1"
 
-type Client struct {
+type OhMySMTPClient struct {
 	apiKey string
+	Client *http.Client
 }
 
 // Expected payload when sending to API
@@ -22,15 +23,15 @@ type Payload struct {
 	TextBody string `json:"textbody"`
 }
 
-// Return new API client
-func NewClient(apiKey string) *Client {
-	return &Client{
+// Return new OhMySMTP client
+func NewClient(apiKey string) *OhMySMTPClient {
+	return &OhMySMTPClient{
 		apiKey: apiKey,
 	}
 }
 
 // Send an email through the API
-func (c *Client) Send(payload *Payload) error {
+func (c *OhMySMTPClient) Send(payload *Payload) error {
 	url := fmt.Sprintf("%s/%s", API_URL, "send")
 
 	// Marshal the payload into JSON format
