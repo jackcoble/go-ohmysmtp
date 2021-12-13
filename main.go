@@ -16,15 +16,12 @@ type OhMySMTPClient struct {
 
 // Expected payload when sending to API
 type Payload struct {
-	From     string `json:"from"`
-	To       string `json:"to"`
-	TextBody string `json:"textbody"`
-
-	CC  string `json:"cc,omitempty"`
-	BCC string `json:"bcc,omitempty"`
-
-	Subject string `json:"subject,omitempty"`
-
+	From            string `json:"from"`
+	To              string `json:"to"`
+	TextBody        string `json:"textbody"`
+	CC              string `json:"cc,omitempty"`
+	BCC             string `json:"bcc,omitempty"`
+	Subject         string `json:"subject,omitempty"`
 	ReplyTo         string `json:"replyto,omitempty"`
 	ListUnsubscribe string `json:"list_unsubscribe,omitempty"`
 	Attachments     string `json:"attachments,omitempty"`
