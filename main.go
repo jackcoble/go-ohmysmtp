@@ -12,7 +12,6 @@ const API_URL = "https://app.ohmysmtp.com/api/v1"
 
 type OhMySMTPClient struct {
 	apiKey string
-	Client *http.Client
 }
 
 // Expected payload when sending to API
@@ -41,7 +40,7 @@ func (c *OhMySMTPClient) Send(payload *Payload) error {
 	}
 
 	// Create and configure HTTP request
-	req, err := http.NewRequest("POST", url, bytes.NewReader(payloadJSON))
+	req, err := http.NewRequest(http.MethodPost, url, bytes.NewReader(payloadJSON))
 	if err != nil {
 		return err
 	}
