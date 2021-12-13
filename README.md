@@ -21,7 +21,7 @@ import (
 
 func main() {
 	// Create a new API client using API key
-	client := NewClient("MY_API_KEY")
+	client := ohmysmtp.NewClient("MY_API_KEY")
 
 	// Construct a payload
 	payload := Payload{
