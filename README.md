@@ -5,7 +5,7 @@
 
 ## Package
 ```
-https://github.com/jackcoble/go-ohmysmtp
+github.com/jackcoble/go-ohmysmtp
 ```
 
 ## Examples
@@ -24,11 +24,11 @@ func main() {
 	client := ohmysmtp.NewClient("MY_API_KEY")
 
 	// Construct a payload
-	payload := Payload{
+	payload := ohmysmtp.Payload{
 		From: "hello@example.com",
 		To: "test@example.com",
 		Subject: "Sending an email using OhMySMTP!",
-		TextBody: "Body that can either be text or HTML",
+		HTMLBody: "<h1>Body that is HTML</h1>",
 	}
 	
 	// Send the email
