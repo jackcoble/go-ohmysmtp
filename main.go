@@ -19,6 +19,7 @@ type Payload struct {
 	From            string `json:"from"`
 	To              string `json:"to"`
 	TextBody        string `json:"textbody"`
+	HTMLBody        string `json:"htmlbody"`
 	CC              string `json:"cc,omitempty"`
 	BCC             string `json:"bcc,omitempty"`
 	Subject         string `json:"subject,omitempty"`
